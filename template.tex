@@ -1,0 +1,328 @@
+% ============================================================
+%  CQUE-ACMers 集训队 ACM 赛题模板
+%  重庆第二师范学院 · 数学与大数据学院
+%  编译: xelatex (需两次编译以生成页码)
+%  用法: 替换正文内容为你的题目
+% ============================================================
+\documentclass[12pt,a4paper]{ctexart}
+
+% ---------- 字体 ----------
+\setCJKmainfont{SimSun}[AutoFakeBold=2.5, ItalicFont=KaiTi]
+\setCJKsansfont{SimHei}
+\setCJKmonofont{KaiTi}
+\setmonofont{Consolas}
+\setmainfont{Times New Roman}
+
+% ---------- 色彩 (学校蓝色系 VIS) ----------
+\usepackage{xcolor}
+\definecolor{navy}{HTML}{1A365D}       % 主色: 深蓝
+\definecolor{steel}{HTML}{2C608A}      % 辅色: 钢蓝
+\definecolor{gold}{HTML}{9B6B1E}       % 点缀: 金色
+\definecolor{accent}{HTML}{8B2500}     % 强调: 赭红
+\definecolor{codebg}{HTML}{F2F3F5}     % 代码背景
+\definecolor{coderule}{HTML}{CFD4DB}   % 代码边框
+\definecolor{headrule}{HTML}{1A365D}   % 页眉线
+\definecolor{separator}{HTML}{B0B8C0}  % 分隔线
+\definecolor{tablehead}{HTML}{E8ECF0}  % 表头背景
+\definecolor{tablerow}{HTML}{F7F8FA}   % 表格行背景
+\definecolor{quoteline}{HTML}{2C608A}  % 引用竖线
+\definecolor{coverbg}{HTML}{0F2440}    % 封面深色背景
+\definecolor{coveraccent}{HTML}{D4A843} % 封面金色文字
+
+% ---------- 页面 ----------
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.2cm, bottom=2.5cm, headheight=24pt]{geometry}
+
+% ---------- 页眉 ----------
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\color{steel!70}\sffamily CQUE-ACMers 集训队}
+\fancyhead[R]{\footnotesize\color{steel!70}\sffamily \thepage\,/\,\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{%
+  \hbox to\headwidth{\color{headrule!40}\leaders\hrule height \headrulewidth\hfill}%
+}
+\fancyfoot[C]{%
+  \ifodd\value{page}%
+    \includegraphics[height=0.7cm]{assets/形象宣传语.png}%
+  \else
+    \includegraphics[height=0.7cm]{assets/学风.png}%
+  \fi
+}
+
+% ---------- 封面命令 ----------
+\newcommand{\maketitlepage}[3]{%
+  % #1 = 比赛标题 (如: CQUE-ACMers 集训队月赛)
+  % #2 = 日期 (如: 2026年6月)
+  % #3 = 命题人 (如: CQUE-ACMers 命题组)
+  \thispagestyle{empty}
+  \newgeometry{left=2cm, right=2cm, top=1.5cm, bottom=1.5cm}
+  %
+  % 封面蓝色边框
+  \begin{tikzpicture}[remember picture, overlay]
+    % 外侧深蓝色粗边框
+    \draw[coverbg, line width=3.5pt] ([xshift=1.2cm,yshift=-1.2cm]current page.north west) rectangle ([xshift=-1.2cm,yshift=1.2cm]current page.south east);
+    % 内侧金色细边框
+    \draw[coveraccent, line width=1.0pt] ([xshift=1.5cm,yshift=-1.5cm]current page.north west) rectangle ([xshift=-1.5cm,yshift=1.5cm]current page.south east);
+  \end{tikzpicture}
+  %
+  \vspace*{1.2cm}
+  %
+  % 校名组合 (中英文上下横式)
+  \begin{center}
+  \includegraphics[width=9cm]{assets/主标识与校名中英文组合（上下横式）.png}
+  \end{center}
+  %
+  \vspace{1.0cm}
+  %
+  % 分割线
+  \begin{center}
+  \textcolor{gold!60}{\rule{0.55\textwidth}{0.8pt}}
+  \end{center}
+  %
+  \vspace{1.0cm}
+  %
+  % 比赛标题
+  \begin{center}
+  {\fontsize{32}{38}\selectfont\bfseries\color{navy} #1\par}
+  \end{center}
+  %
+  \vspace{0.8cm}
+  %
+  % 日期
+  \begin{center}
+  {\Large\color{steel} #2\par}
+  \end{center}
+  %
+  \vspace{0.6cm}
+  %
+  % 命题人
+  \begin{center}
+  {\large\color{steel!80} 命题人：#3\par}
+  \end{center}
+  %
+  \vfill
+  %
+  % 底部: 校训 + 学院
+  \begin{center}
+  \includegraphics[width=4.5cm]{assets/校训.png}
+  \end{center}
+  %
+  \vspace{0.6cm}
+  %
+  \begin{center}
+  {\small\color{steel!60}\sffamily 重庆第二师范学院 · 数学与大数据学院}
+  \end{center}
+  %
+  \vspace{0.3cm}
+  %
+  \restoregeometry
+  \newpage
+  \setcounter{page}{1}
+}
+
+% ---------- 标题样式 ----------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\Huge\bfseries\color{navy}}
+  {}{0em}{}
+  [\vspace{0.3em}]
+\titlespacing{\section}{0pt}{0pt}{8pt}
+\titleformat{\subsection}
+  {\Large\bfseries\color{navy}}
+  {}{0em}{}
+  [\vspace{-0.3em}\textcolor{steel!50}{\rule{\textwidth}{1pt}}]
+\titlespacing{\subsection}{0pt}{18pt}{10pt}
+\titleformat{\subsubsection}
+  {\large\bfseries\color{steel}}
+  {}{0em}{}
+\titlespacing{\subsubsection}{0pt}{12pt}{4pt}
+
+% ---------- 段落 ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{2em}
+\linespread{1.15}
+
+% ---------- 列表 ----------
+\usepackage{enumitem}
+\setlist{nosep, leftmargin=2.2em, itemsep=1pt}
+\setlist[enumerate,1]{label=(\arabic*)}
+\setlist[itemize,1]{label=\textcolor{steel}{\textbullet}}
+
+% ---------- 引用块 ----------
+\usepackage{framed}
+\newenvironment{poemframe}{%
+  \def\FrameCommand{\textcolor{quoteline}{\vrule width 2.5pt}\hspace{8pt}}%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \color{steel!85}\small\itshape
+}{%
+  \endMakeFramed
+}
+
+% ---------- 代码 ----------
+\usepackage{listings}
+\lstset{
+  basicstyle=\small\ttfamily,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  framesep=10pt,
+  framerule=0.6pt,
+  rulecolor=\color{coderule},
+  xleftmargin=14pt,
+  xrightmargin=14pt,
+  aboveskip=10pt,
+  belowskip=10pt,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  breaklines=true,
+  tabsize=2,
+}
+
+% ---------- 表格 ----------
+\usepackage{longtable,booktabs,array}
+\usepackage[table]{xcolor}
+\arrayrulecolor{steel!25}
+\renewcommand{\arraystretch}{1.3}
+
+% ---------- 超链接 ----------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=steel!80,
+  urlcolor=navy,
+  citecolor=steel,
+  pdfborder={0 0 0},
+}
+
+% ---------- 其他 ----------
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{tikz}
+\usepackage{atbegshi}
+
+% ---------- 正文页水印 (atbegshi: 仅真实shipout, 不受longtable试排影响) ----------
+\AtBeginShipout{%
+  \ifnum\value{page}>1
+    \AtBeginShipoutUpperLeft{%
+      \begin{tikzpicture}[remember picture, overlay]
+        \node[opacity=0.07, inner sep=0pt] at (current page.center) {%
+          \includegraphics[width=12cm]{assets/主标识简化图案.png}%
+        };
+      \end{tikzpicture}%
+    }%
+  \fi
+}
+
+% ---------- 杂项 ----------
+\newcounter{none} % for unnumbered longtables (pandoc compat)
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} % pandoc compat
+
+% ---------- 自定义命令 ----------
+% 题目间分隔线
+\newcommand{\problemsetsep}{%
+  \vspace{6pt}%
+  \begin{center}\textcolor{separator!50}{\rule{0.35\textwidth}{0.3pt}}\end{center}%
+  \vspace{2pt}%
+}
+% 样例标题
+\newcommand{\sampletitle}[1]{\smallskip{\color{gold}\sffamily\bfseries #1}}
+% 包/工具名
+\newcommand{\pkg}[1]{\textcolor{steel}{\texttt{#1}}}
+% 题目链接占位
+\newcommand{\problemlink}[1]{\textcolor{steel!60}{\footnotesize\sffamily #1}}
+
+% ============================================================
+%  正文开始
+%  将此区域替换为你的题目内容
+% ============================================================
+\begin{document}
+
+% ====== 封面 ======
+\maketitlepage{CQUE-ACMers 集训队月赛}{2026年6月}{CQUE-ACMers 命题组}
+
+% ====== 题目正文 ======
+% 在此处粘贴题目内容
+% 题目使用 \subsection{标题} 分隔
+% 每道题末尾使用 \problemsetsep 分隔
+
+\section{比赛说明}
+
+\begin{quote}
+欢迎参加 CQUE-ACMers 集训队月赛。请在比赛开始前仔细阅读以下说明。
+\end{quote}
+
+\subsection{注意事项}
+
+\begin{itemize}
+  \item 比赛时长：5 小时
+  \item 题目数量：本场比赛共包含若干道题目
+  \item 请使用规定的编程语言提交代码
+  \item 请在本地测试通过后再提交
+  \item 排名以通过题目数量和罚时为准
+\end{itemize}
+
+\subsection{题目概览}
+
+% 示例目录表格
+{\def\LTcaptype{none}
+\begin{longtable}[]{@{}cl@{}}
+\toprule\noalign{}
+题号 & 标题 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+T1 & 示例题目一 \\
+T2 & 示例题目二 \\
+T3 & 示例题目三 \\
+\bottomrule
+\end{longtable}}
+
+% ============================================================
+%  题目示例
+% ============================================================
+
+\subsection{T1 · 示例题目名称}
+
+\textbf{题目描述}
+
+这是题目描述的示例文本。请在此处输入完整的题目内容。
+
+\sampletitle{输入格式}
+
+第一行包含一个整数 \(n\) (\(1 \le n \le 10^5\))。
+
+\sampletitle{输出格式}
+
+输出一个整数表示答案。
+
+\sampletitle{样例输入}
+
+\begin{lstlisting}[frame=single, basicstyle=\small\ttfamily, backgroundcolor=\color{codebg}]
+3
+1 2 3
+\end{lstlisting}
+
+\sampletitle{样例输出}
+
+\begin{lstlisting}[frame=single, basicstyle=\small\ttfamily, backgroundcolor=\color{codebg}]
+6
+\end{lstlisting}
+
+\sampletitle{提示}
+
+对于 \(100\%\) 的数据，\(1 \le n \le 10^5\)。
+
+\problemsetsep
+
+% ============================================================
+%  模板结束
+%  更多题目请继续粘贴在此处
+% ============================================================
+
+\end{document}

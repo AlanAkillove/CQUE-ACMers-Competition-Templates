@@ -1,0 +1,27 @@
+# LaTeX compilation artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+
+# Generated PDFs (except tracked examples)
+*.pdf
+!examples/*.pdf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+/nul
