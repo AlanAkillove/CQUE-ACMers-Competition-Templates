@@ -1,10 +1,13 @@
+---
+name: cque-acmers-templates
+description: CQUE-ACMers ACM赛题LaTeX模板 — 从Markdown构建排版精美的比赛PDF，包含学校VIS规范的封面、水印、页脚等视觉元素
+---
+
 # CQUE-ACMers 赛题模板 — Agent 使用指南
 
 ## 项目概述
 
 为重庆第二师范学院 CQUE-ACMers 集训队定制的 ACM 赛题 LaTeX 模板，支持从 Markdown 一键构建为排版精美的比赛 PDF。包含学校 VIS 规范的封面、水印、页脚等视觉元素。
-
-**工作目录**：`D:\DesktopDocs\6月月赛\CQUE-ACMers-Templates`
 
 ## 核心文件
 
@@ -19,7 +22,6 @@
 ### 从 Markdown 构建 PDF
 
 ```bash
-cd "D:\DesktopDocs\6月月赛\CQUE-ACMers-Templates"
 python build_pdf.py path/to/source.md --title "标题" --date "日期" --author "命题人" --keep-tex
 ```
 
