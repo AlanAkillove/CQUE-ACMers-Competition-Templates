@@ -108,12 +108,12 @@ python build_pdf.py "../【26春6月】CQUE-ACM校赛.md" \
 
 ## AI 助手集成（SKILL）
 
-本仓库包含 `SKILL.md`，为 [Qoder](https://qoder.com) AI 编码助手提供该模板的完整使用指南，让 AI 能够直接理解项目结构并执行构建。
+本仓库包含 `SKILL.md`，为 AI 编码助手提供该模板的完整使用指南，让 AI 能够直接理解项目结构并执行构建。
 
 ### 安装方式
 
-1. 在 Qoder 中打开本项目工作目录
-2. 将 `SKILL.md` 放置在 Qoder 的技能加载路径中（例如 `.qoder/skills/` 目录），或在 Qoder 配置中注册该 skill
+1. 在 Agentic IDE 中打开本项目工作目录
+2. 将 `SKILL.md` 放置在 Agentic IDE 的技能加载路径中（例如 `.claude/skills/` 目录），或在 Agentic IDE 配置中注册该 skill
 3. 完成后，AI 助手即可在对话中通过 `/CQUE-ACMers-Templates` 或 `@CQUE-ACMers-Templates` 调用该 skill
 
 ### AI 助手能做什么

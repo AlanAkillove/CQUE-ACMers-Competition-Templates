@@ -219,7 +219,6 @@
 }
 
 % ---------- 杂项 ----------
-\newcounter{none} % for unnumbered longtables (pandoc compat)
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} % pandoc compat
 
 % ---------- 自定义命令 ----------
@@ -269,19 +268,15 @@
 \subsection{题目概览}
 
 % 示例目录表格
-{\def\LTcaptype{none}
-\begin{longtable}[]{@{}cl@{}}
-\toprule\noalign{}
+\begin{tabular}{cl}
+\toprule
 题号 & 标题 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
+\midrule
 T1 & 示例题目一 \\
 T2 & 示例题目二 \\
 T3 & 示例题目三 \\
 \bottomrule
-\end{longtable}}
+\end{tabular}
 
 % ============================================================
 %  题目示例

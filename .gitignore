@@ -21,6 +21,9 @@ __pycache__/
 *.pyc
 *.pyo
 
+# AI / IDE
+.claude/
+
 # OS
 .DS_Store
 Thumbs.db
