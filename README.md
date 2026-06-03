@@ -106,6 +106,25 @@ python build_pdf.py "../【26春6月】CQUE-ACM校赛.md" \
 - **加粗关键词** `**输入格式**`、`**输出格式**`、`**样例输入**`、`**样例输出**` 会自动格式化为金色标签
 - **水平分隔线** `---` 会被替换为题目间分隔线
 
+## AI 助手集成（SKILL）
+
+本仓库包含 `SKILL.md`，为 [Qoder](https://qoder.com) AI 编码助手提供该模板的完整使用指南，让 AI 能够直接理解项目结构并执行构建。
+
+### 安装方式
+
+1. 在 Qoder 中打开本项目工作目录
+2. 将 `SKILL.md` 放置在 Qoder 的技能加载路径中（例如 `.qoder/skills/` 目录），或在 Qoder 配置中注册该 skill
+3. 完成后，AI 助手即可在对话中通过 `/CQUE-ACMers-Templates` 或 `@CQUE-ACMers-Templates` 调用该 skill
+
+### AI 助手能做什么
+
+启用 SKILL 后，AI 助手将能够自动执行：
+
+- 从 Markdown 源文件一键构建带 VIS 封面的 PDF
+- 调整封面标题、日期、命题人
+- 配置水印透明度、样式自定义
+- 排查编译错误（依赖缺失、字体问题等）
+
 ## 许可证
 
 本项目仅限 CQUE-ACMers 集训队内部使用。VIS 素材版权归重庆第二师范学院所有。
